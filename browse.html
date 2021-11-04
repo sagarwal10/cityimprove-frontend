@@ -67,29 +67,130 @@
     }
 
     /* START OF SPECIFIC PAGE STYLING */
-    #home {
+    #browse {
       height: 100%;
       display: flex;
-      flex-direction: row;
+      flex-direction: column;
       justify-content: space-around;
     }
 
-    .homeinfopanels {
-      margin: auto;
-      width: 35%;
+    #filterformarea {
+      width: 75%;
+      height: 30%;
+      margin: 20px auto 5px auto;
       background: #ffffff;
       border: 2px solid black;
       opacity: 0.6;
-      margin: 40px;
-      padding: 40px;
+      padding: 20px;
       border-radius: 10px;
       color: black;
       font-size: 20px;
     }
 
-    .homeinfopanels h3 {
-        text-align: center;
+    #filterform {
+      text-align: center;
+    } 
+
+    #filterresults{
+      width: 75%;
+      margin: 40px auto 20px auto;
+      height: 70%; 
+      background: #ffffff;
+      border: 2px solid black;
+      opacity: 0.6;
+      padding: 20px;
+      border-radius: 10px;
+      color: black;
+      font-size: 20px;
     }
+
+    input[type=text] {
+      background: transparent;
+      border: none;
+      border-bottom: 1px solid #000000;
+    }
+
+    input {
+      text-align: center;
+    } 
+
+    label {
+      font-weight: bold;
+    }
+
+    #filterformelements {
+      display: flex;
+      flex-direction: row;
+      border: none;
+      justify-content: space-between;
+    }
+
+    h3 {
+       text-align: center;
+    }
+
+    .filterformelement {
+	font-size: 20px;
+	display: flex;
+	flex-direction: row;
+	margin: 15px;
+    } 
+
+    .filterformelement input {
+        margin-left: 20px;
+    } 
+
+    .submitbutton {
+	margin: 10px auto 10px auto;
+	background: #01a3ec;
+	font-size: 16px;
+	padding: 5px;
+	border-radius: 5px;
+	color: white;
+    } 
+ 
+    #issuelistingarea {
+	display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        grid-template-rows: minmax(200px, 1fr);
+        gap: 20px;
+    } 
+
+    .issuelisting {
+	display: grid;
+	border: 1px solid;
+	padding: 10px;
+	border-radius: 5px;
+	grid-template-columns: 90%  10%;
+	grid-template-rows: 10% 50% 30% 10%;
+	grid-template-areas:
+	  "title title"
+	  "image image"
+	  "description description"
+	  "detail detail";
+     } 
+
+     .title {
+	grid-area: title;
+     }
+  
+     .issueimage {
+	grid-area: image;
+     }
+
+     .description {
+	grid-area: description;
+     }
+
+     .detail {
+	grid-area: detail;
+     }
+
+     .issueimg {
+	width: 100%;
+	height: 100%;
+	aspect-ratio: 1/1;
+     }
 
     /* RESPONSIVE NAV BAR */
     .navbar {
@@ -173,19 +274,24 @@
     }
  
     /* START OF SPECIFIC PAGE STYLING */
-    #home {
+    #filterformelements {
       flex-direction: column;
+      justify-content: center;
+      align-items: center;
     }
 
-    .homeinfopanels {
-      margin: 20px auto 10px auto;
-      width: 70%;
+    .filterformelement {
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
     }
-
+    
+    .filterformelement input {
+        margin-left: 0;
     }
-
+  }
     @media screen and (min-width: 768px) {
-    .navbar {
+      .navbar {
            /* makes the whole navbar into a flex container, including the toggle, 
 	      and divide up the space between the flex items */
 
@@ -195,7 +301,7 @@
         padding-bottom: 0;
         height: 70px;
         align-items: center;
-    }
+      }
 
     .main-nav {
        /* makes just the ul with the 5 links into a flex container, 
@@ -247,41 +353,100 @@
       </div>
 	
       <ul class="main-nav" id="js-menu">
-        <li id="activelink"><a class="nav-links" href="home.html">HOME</a></li>
+        <li><a class="nav-links" href="home.html">HOME</a></li>
         <li><a class="nav-links" href="#about">BROWSE ISSUES</a></li>
-        <li><a class="nav-links" href="signup.html">SIGN UP</a></li>
-	<li><a class="nav-links" href="submit.html">REPORT ISSUE</a></li>
+        <li id="activelink"><a class="nav-links" href="signup.html">SIGN UP</a></li>
+	<li><a class="nav-links" href="#submit">REPORT ISSUE</a></li>
       </ul>
    </nav>
 
-    <div class="maincontent" id="home">
-        <div class="homeinfopanels">
-          <h3>ABOUT</h3>
-          <br><br>
-          City Improve is a website that has been built to help citizens list issues in their neighborhoods and cities and allow their neighbors to vote and comment on these issues. <br><br>
+    <div class="maincontent" id="browse">
+        <div id="filterformarea">
+          <h3>FILTER RESULTS BY</h3>
+	  <form id="filterform" action="" method="">
+	    <div id="filterformelements">
+	      <div class="filterformelement">
+	        <label for="zipcode">Zipcode</label>
+	        <input type="text" name="zipcode" id="zipcode" required
+		       placeholder="Zipcode of search area">
+	      </div>
+	      <div class="filterformelement">
+	        <label for="tags"">Tags</label>
+	        <input type="text" name="tags" id="tags" required
+		       placeholder="comma seperated keywords">
+	      </div>
+            </div>
+	    <input class="submitbutton" type="submit" value="Filter" >
+	  </form>
+        </div> 
 
-This is in order to let their local government know about things that affect them and their neighbors.
-<br><br>
-The city and the department of public works can then make meaningful improvements.
-<br><br>
-This is a platform for engagement between local government and their citizens.
-        </div>
+        <div id="filterresults">
+          <h3>LISTINGS</h3>
+	  <div id="resultsarea"> 
+	    <div id="issuelistingarea">
 
-        <div class="homeinfopanels">
-          <h3>Kinds of Issues to List</h3>
-          <br><br>
-            <ul>
-              <li>Street lights that don’t work</li>
-              <li>Parks that need cleaning</li>
-              <li>School infrastructure & safety</li>
-              <li>Dangerous Intersections</li>
-              <li>Speeding Drivers</li>
-              <li>City Website Improvements</li>
-              <li>Non functional traffic lights</li>
-              <li>Road & Bridge conditions</li>
-              <li>Pavement issues</li>
-              <li>Any other public safety issues</li>
-            </ul>
+	      <div class="issuelisting">
+	        <div class="title">
+		  Traffic lights not functioning
+	        </div>
+	        <div class="issueimage" >
+	          <img class="issueimg" src="img/FaultyTrafficLight.jpeg">
+	        </div>
+	        <div class="description">
+		  The traffic lights at 24th and mission are showing both a green and a red
+	        </div>
+	        <div class="detail">
+		  <input class="submitbutton" value="Details">
+	        </div>
+	      </div>
+
+	      <div class="issuelisting">
+	        <div class="title">
+		  Traffic lights not functioning
+	        </div>
+	        <div class="issueimage" >
+	          <img class="issueimg" src="img/FaultyTrafficLight.jpeg">
+	        </div>
+	        <div class="description">
+		  The traffic lights at 24th and mission are showing both a green and a red
+	        </div>
+	        <div class="detail">
+		  <input class="submitbutton" value="Details">
+	        </div>
+	      </div>
+
+              <div class="issuelisting">
+                <div class="title">
+                  Traffic lights not functioning
+                </div>
+                <div class="issueimage" >
+                  <img class="issueimg" src="img/FaultyTrafficLight.jpeg">
+                </div>
+                <div class="description">
+                  The traffic lights at 24th and mission are showing both a green and a red
+                </div>
+                <div class="detail">
+                  <input class="submitbutton" value="Details">
+                </div>
+              </div>
+
+              <div class="issuelisting">
+                <div class="title">
+                  Traffic lights not functioning
+                </div>
+                <div class="issueimage" >
+                  <img class="issueimg" src="img/FaultyTrafficLight.jpeg">
+                </div>
+                <div class="description">
+                  The traffic lights at 24th and mission are showing both a green and a red
+                </div>
+                <div class="detail">
+                  <input class="submitbutton" value="Details">
+                </div>
+              </div>
+
+            </div>
+	  </div>
         </div>
     </div>
 

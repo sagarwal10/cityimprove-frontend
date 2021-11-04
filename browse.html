@@ -149,6 +149,17 @@
 	color: white;
     } 
  
+    .detailbutton {
+	margin-top: 20px;
+	float: right;
+	background: #01a3ec;
+	font-size: 16px;
+	padding: 2px;
+	border-radius: 2px;
+	color: white;
+	width: 20%;
+    } 
+
     #issuelistingarea {
 	display: grid;
         grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -158,7 +169,7 @@
 
     .issuelisting {
 	display: grid;
-	border: 1px solid;
+	border: 4px solid;
 	padding: 10px;
 	border-radius: 5px;
 	grid-template-columns: 90%  10%;
@@ -172,13 +183,23 @@
 
      .title {
 	grid-area: title;
+	text-align: center;
+	font-weight: bold;
+	font-size: 24px;
+	overflow: clip;
+	color: #01a3ec;
+	text-overflow: ellipsis;
+
      }
   
      .issueimage {
 	grid-area: image;
+	border: 2px solid;
+	border-radius: 5px;
      }
 
      .description {
+	margin-top: 10px;
 	grid-area: description;
      }
 
@@ -354,8 +375,8 @@
 	
       <ul class="main-nav" id="js-menu">
         <li><a class="nav-links" href="home.html">HOME</a></li>
-        <li><a class="nav-links" href="#about">BROWSE ISSUES</a></li>
-        <li id="activelink"><a class="nav-links" href="signup.html">SIGN UP</a></li>
+        <li id="activelink"><a class="nav-links" href="browse.html">BROWSE ISSUES</a></li>
+        <li><a class="nav-links" href="signup.html">SIGN UP</a></li>
 	<li><a class="nav-links" href="#submit">REPORT ISSUE</a></li>
       </ul>
    </nav>
@@ -387,64 +408,71 @@
 
 	      <div class="issuelisting">
 	        <div class="title">
-		  Traffic lights not functioning
+		  Traffic lights not functioning 
 	        </div>
 	        <div class="issueimage" >
 	          <img class="issueimg" src="img/FaultyTrafficLight.jpeg">
 	        </div>
 	        <div class="description">
 		  The traffic lights at 24th and mission are showing both a green and a red
+		  and causing a confusing situation for drivers. This has been going on for
+		  a couple of months. Crews came by once and the problem was fixed temporarily
+		  but started again.
 	        </div>
 	        <div class="detail">
-		  <input class="submitbutton" value="Details">
+		  <input class="detailbutton" value="Details">
 	        </div>
 	      </div>
 
 	      <div class="issuelisting">
 	        <div class="title">
-		  Traffic lights not functioning
+		  Park Playground needs repair
+	        </div>
+	        <div class="issueimage" >
+	          <img class="issueimg" src="img/ParkPlayGround.jpeg">
+	        </div>
+	        <div class="description">
+		  The Park Playground at Dolores Park has a swing that needs fixing 
+		  and the areas around the playground need trash pickup and cleaning
+	        </div>
+	        <div class="detail">
+		  <input class="detailbutton" value="Details">
+	        </div>
+	      </div>
+
+	      <div class="issuelisting">
+	        <div class="title">
+		  Traffic lights not functioning 
 	        </div>
 	        <div class="issueimage" >
 	          <img class="issueimg" src="img/FaultyTrafficLight.jpeg">
 	        </div>
 	        <div class="description">
 		  The traffic lights at 24th and mission are showing both a green and a red
+		  and causing a confusing situation for drivers. This has been going on for
+		  a couple of months. Crews came by once and the problem was fixed temporarily
+		  but started again.
 	        </div>
 	        <div class="detail">
-		  <input class="submitbutton" value="Details">
+		  <input class="detailbutton" value="Details">
 	        </div>
 	      </div>
 
-              <div class="issuelisting">
-                <div class="title">
-                  Traffic lights not functioning
-                </div>
-                <div class="issueimage" >
-                  <img class="issueimg" src="img/FaultyTrafficLight.jpeg">
-                </div>
-                <div class="description">
-                  The traffic lights at 24th and mission are showing both a green and a red
-                </div>
-                <div class="detail">
-                  <input class="submitbutton" value="Details">
-                </div>
-              </div>
-
-              <div class="issuelisting">
-                <div class="title">
-                  Traffic lights not functioning
-                </div>
-                <div class="issueimage" >
-                  <img class="issueimg" src="img/FaultyTrafficLight.jpeg">
-                </div>
-                <div class="description">
-                  The traffic lights at 24th and mission are showing both a green and a red
-                </div>
-                <div class="detail">
-                  <input class="submitbutton" value="Details">
-                </div>
-              </div>
-
+	      <div class="issuelisting">
+	        <div class="title">
+		  Park Playground needs repair
+	        </div>
+	        <div class="issueimage" >
+	          <img class="issueimg" src="img/ParkPlayGround.jpeg">
+	        </div>
+	        <div class="description">
+		  The Park Playground at Dolores Park has a swing that needs fixing 
+		  and the areas around the playground need trash pickup and cleaning
+	        </div>
+	        <div class="detail">
+		  <input class="detailbutton" value="Details">
+	        </div>
+	      </div>
             </div>
 	  </div>
         </div>

@@ -67,38 +67,22 @@
     }
 
     /* START OF SPECIFIC PAGE STYLING */
-    #browse {
+    #submit {
       height: 100%;
       display: flex;
       flex-direction: column;
       justify-content: space-around;
     }
 
-    #filterformarea {
-      width: 75%;
-      height: 30%;
-      margin: 20px auto 5px auto;
-      background: #ffffff;
-      border: 2px solid black;
-      opacity: 0.6;
-      padding: 20px;
-      border-radius: 10px;
-      color: black;
-      font-size: 20px;
-    }
 
-    #filterform {
-      text-align: center;
-    } 
-
-    #filterresults{
+    #submitarea {
       width: 75%;
       margin: 40px auto 20px auto;
       height: 70%; 
       background: #ffffff;
       border: 2px solid black;
       opacity: 0.6;
-      padding: 20px;
+      padding: 40px;
       border-radius: 10px;
       color: black;
       font-size: 20px;
@@ -108,6 +92,7 @@
       background: transparent;
       border: none;
       border-bottom: 1px solid #000000;
+      min-width: 15em;
     }
 
     input {
@@ -118,30 +103,39 @@
       font-weight: bold;
     }
 
-    #filterformelements {
-      display: flex;
-      flex-direction: row;
-      border: none;
-      justify-content: space-between;
+    #submitform {
+      text-align: center;
+      .input {
+	text-decoration: underline;
+      }
     }
-
-    h3 {
+    #submit  h3 {
        text-align: center;
     }
 
-    .filterformelement {
+    .submitformelement {
 	font-size: 20px;
 	display: flex;
 	flex-direction: row;
-	margin: 15px;
+	justify-content: center;
+	margin: 20px;
     } 
 
-    .filterformelement input {
-        margin-left: 20px;
+    #description {
+	flex-direction: column;
     } 
 
-    .submitbutton {
-	margin: 10px auto 10px auto;
+    .submitformelement input {
+        margin-left: 50px;
+    } 
+
+    .submitformelement textarea {
+	margin-top: 10px;
+	margin-left: 25px;
+    } 
+
+    #submitbutton {
+	margin-top: 25px;
 	background: #01a3ec;
 	font-size: 16px;
 	padding: 5px;
@@ -149,69 +143,13 @@
 	color: white;
     } 
  
-    .detailbutton {
-	margin-top: 20px;
-	float: right;
+    #uploadbutton {
 	background: #01a3ec;
-	font-size: 16px;
-	padding: 2px;
-	border-radius: 2px;
+	font-size: 12px;
+	padding: 5px;
+	border-radius: 5px;
 	color: white;
-	width: 20%;
     } 
-
-    #issuelistingarea {
-	display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-        grid-template-rows: minmax(200px, 1fr);
-        gap: 20px;
-    } 
-
-    .issuelisting {
-	display: grid;
-	border: 4px solid;
-	padding: 10px;
-	border-radius: 5px;
-	grid-template-columns: 90%  10%;
-	grid-template-rows: 10% 50% 30% 10%;
-	grid-template-areas:
-	  "title title"
-	  "image image"
-	  "description description"
-	  "detail detail";
-     } 
-
-     .title {
-	grid-area: title;
-	text-align: center;
-	font-weight: bold;
-	font-size: 24px;
-	overflow: clip;
-	color: #01a3ec;
-	text-overflow: ellipsis;
-
-     }
-  
-     .issueimage {
-	grid-area: image;
-	border: 2px solid;
-	border-radius: 5px;
-     }
-
-     .description {
-	margin-top: 10px;
-	grid-area: description;
-     }
-
-     .detail {
-	grid-area: detail;
-     }
-
-     .issueimg {
-	width: 100%;
-	height: 100%;
-	aspect-ratio: 1/1;
-     }
 
     /* RESPONSIVE NAV BAR */
     .navbar {
@@ -295,20 +233,22 @@
     }
  
     /* START OF SPECIFIC PAGE STYLING */
-    #filterformelements {
+    .submitformelement {
       flex-direction: column;
-      justify-content: center;
-      align-items: center;
     }
 
-    .filterformelement {
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
+    input {
+      margin-top: 5px;
+      margin-bottom: 10px;
+   }
+
+    .submitformelement textarea {
+        margin-top: 5px;
+	margin-bottom: 10px;
     }
-    
-    .filterformelement input {
-        margin-left: 0;
+
+    .submitformelement input {
+	margin-left: 0;
     }
   }
     @media screen and (min-width: 768px) {
@@ -375,106 +315,39 @@
 	
       <ul class="main-nav" id="js-menu">
         <li><a class="nav-links" href="home.html">HOME</a></li>
-        <li id="activelink"><a class="nav-links" href="browse.html">BROWSE ISSUES</a></li>
+        <li><a class="nav-links" href="browse.html">BROWSE ISSUES</a></li>
         <li><a class="nav-links" href="signup.html">SIGN UP</a></li>
-	<li><a class="nav-links" href="submit.html">REPORT ISSUE</a></li>
+	<li id="activelink"><a class="nav-links" href="submit.html">REPORT ISSUE</a></li>
       </ul>
    </nav>
 
-    <div class="maincontent" id="browse">
-        <div id="filterformarea">
-          <h3>FILTER RESULTS BY</h3>
-	  <form id="filterform" action="" method="">
-	    <div id="filterformelements">
-	      <div class="filterformelement">
-	        <label for="zipcode">Zipcode</label>
-	        <input type="text" name="zipcode" id="zipcode" required
-		       placeholder="Zipcode of search area">
-	      </div>
-	      <div class="filterformelement">
-	        <label for="tags"">Tags</label>
-	        <input type="text" name="tags" id="tags" required
-		       placeholder="comma seperated keywords">
-	      </div>
-            </div>
-	    <input class="submitbutton" type="submit" value="Filter" >
+    <div class="maincontent" id="submit">
+
+        <div id="submitarea">
+          <h3>REPORT AN ISSUE</h3>
+	  <form id="submitform" action="" method="">
+	    <div class="submitformelement">
+	      <label for="title">Title</label>
+	      <input type="text" name="title" id="title" required
+		     placeholder="Enter a brief descriptive summary ">
+	    </div>
+	    <div id="description" class="submitformelement">
+	      <label for="description">Description of Issue</label>
+	      <textarea name="description" id="description" required
+		     rows="10" cols="60">Enter all details of the issue being reported
+	      </textarea>
+	    </div>
+	    <div class="submitformelement">
+	      <label for="image">Upload a Photo</label>
+	      <input id="uploadbutton" type="submit" value="Click here to upload Photo" >
+	    </div>
+	    <div class="submitformelement">
+	      <label for="zipcode">Zipcode</label>
+	      <input type="text" name="zipcode" id="zipcode" required
+		     placeholder="Default zipcode of user">
+	    </div>
+	    <input id="submitbutton" type="submit" value="Submit" >
 	  </form>
-        </div> 
-
-        <div id="filterresults">
-          <h3>LISTINGS</h3>
-	  <div id="resultsarea"> 
-	    <div id="issuelistingarea">
-
-	      <div class="issuelisting">
-	        <div class="title">
-		  Traffic lights not functioning 
-	        </div>
-	        <div class="issueimage" >
-	          <img class="issueimg" src="img/FaultyTrafficLight.jpeg">
-	        </div>
-	        <div class="description">
-		  The traffic lights at 24th and mission are showing both a green and a red
-		  and causing a confusing situation for drivers. This has been going on for
-		  a couple of months. Crews came by once and the problem was fixed temporarily
-		  but started again.
-	        </div>
-	        <div class="detail">
-		  <input class="detailbutton" value="Details">
-	        </div>
-	      </div>
-
-	      <div class="issuelisting">
-	        <div class="title">
-		  Park Playground needs repair
-	        </div>
-	        <div class="issueimage" >
-	          <img class="issueimg" src="img/ParkPlayGround.jpeg">
-	        </div>
-	        <div class="description">
-		  The Park Playground at Dolores Park has a swing that needs fixing 
-		  and the areas around the playground need trash pickup and cleaning
-	        </div>
-	        <div class="detail">
-		  <input class="detailbutton" value="Details">
-	        </div>
-	      </div>
-
-	      <div class="issuelisting">
-	        <div class="title">
-		  Traffic lights not functioning 
-	        </div>
-	        <div class="issueimage" >
-	          <img class="issueimg" src="img/FaultyTrafficLight.jpeg">
-	        </div>
-	        <div class="description">
-		  The traffic lights at 24th and mission are showing both a green and a red
-		  and causing a confusing situation for drivers. This has been going on for
-		  a couple of months. Crews came by once and the problem was fixed temporarily
-		  but started again.
-	        </div>
-	        <div class="detail">
-		  <input class="detailbutton" value="Details">
-	        </div>
-	      </div>
-
-	      <div class="issuelisting">
-	        <div class="title">
-		  Park Playground needs repair
-	        </div>
-	        <div class="issueimage" >
-	          <img class="issueimg" src="img/ParkPlayGround.jpeg">
-	        </div>
-	        <div class="description">
-		  The Park Playground at Dolores Park has a swing that needs fixing 
-		  and the areas around the playground need trash pickup and cleaning
-	        </div>
-	        <div class="detail">
-		  <input class="detailbutton" value="Details">
-	        </div>
-	      </div>
-            </div>
-	  </div>
         </div>
     </div>
 

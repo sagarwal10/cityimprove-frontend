@@ -57,6 +57,10 @@
       min-height: 100vh;
     }
 
+    a {
+      text-decoration: none;
+      color: black;
+    } 
 
     #activelink {
       background: white;
@@ -150,16 +154,10 @@
 	float: right;
 	background: #01a3ec;
 	font-size: 16px;
-	padding: 10px;
-	border-radius: 10px;
-	border: 5px solid;
+	padding: 2px;
+	border-radius: 2px;
 	color: white;
 	width: 20%;
-	text-align: center;
-    } 
-
-    a {
-      text-decoration: none;
     } 
 
     #issuelistingarea {
@@ -171,15 +169,15 @@
 
     .issuelisting {
 	display: grid;
-	border: 4px solid;
 	padding: 10px;
 	border-radius: 5px;
-	grid-template-columns: 90%  10%;
-	grid-template-rows: 10% 50% 30% 10%;
+	grid-template-columns: 50%  50%;
+	grid-template-rows: 10% 50% 5% 30% 5%;
 	grid-template-areas:
 	  "title title"
-	  "image image"
-	  "description description"
+	  "image description"
+	  "like like"
+	  "comment comment"
 	  "detail detail";
      } 
 
@@ -312,6 +310,17 @@
     .filterformelement input {
         margin-left: 0;
     }
+
+    .issuelisting {
+	grid-template-rows: 10% 30% 20% 10% 20% 10%;
+	grid-template-areas:
+	  "title title"
+	  "image image"
+	  "description description"
+	  "like like"
+	  "comment comment"
+	  "detail detail";
+     } 
   }
     @media screen and (min-width: 768px) {
       .navbar {
@@ -384,27 +393,9 @@
    </nav>
 
     <div class="maincontent" id="browse">
-        <div id="filterformarea">
-          <h3>FILTER RESULTS BY</h3>
-	  <form id="filterform" action="" method="">
-	    <div id="filterformelements">
-	      <div class="filterformelement">
-	        <label for="zipcode">Zipcode</label>
-	        <input type="text" name="zipcode" id="zipcode" required
-		       placeholder="Zipcode of search area">
-	      </div>
-	      <div class="filterformelement">
-	        <label for="tags"">Tags</label>
-	        <input type="text" name="tags" id="tags" required
-		       placeholder="comma seperated keywords">
-	      </div>
-            </div>
-	    <input class="submitbutton" type="submit" value="Filter" >
-	  </form>
-        </div> 
 
         <div id="filterresults">
-          <h3>LISTINGS</h3>
+          <h3>DETAIL ISSUE LISTING</h3>
 	  <div id="resultsarea"> 
 	    <div id="issuelistingarea">
 
@@ -422,59 +413,10 @@
 		  but started again.
 	        </div>
 	        <div class="detail">
-		  <a class="detailbutton" href="detail.html">Details</a>
+		  <input class="detailbutton" value="Details">
 	        </div>
 	      </div>
 
-	      <div class="issuelisting">
-	        <div class="title">
-		  Park Playground needs repair
-	        </div>
-	        <div class="issueimage" >
-	          <img class="issueimg" src="img/ParkPlayGround.jpeg">
-	        </div>
-	        <div class="description">
-		  The Park Playground at Dolores Park has a swing that needs fixing 
-		  and the areas around the playground need trash pickup and cleaning
-	        </div>
-	        <div class="detail">
-		  <a class="detailbutton" href="detail.html">Details</a>
-	        </div>
-	      </div>
-
-	      <div class="issuelisting">
-	        <div class="title">
-		  Traffic lights not functioning 
-	        </div>
-	        <div class="issueimage" >
-	          <img class="issueimg" src="img/FaultyTrafficLight.jpeg">
-	        </div>
-	        <div class="description">
-		  The traffic lights at 24th and mission are showing both a green and a red
-		  and causing a confusing situation for drivers. This has been going on for
-		  a couple of months. Crews came by once and the problem was fixed temporarily
-		  but started again.
-	        </div>
-	        <div class="detail">
-		  <a class="detailbutton" href="detail.html">Details</a>
-	        </div>
-	      </div>
-
-	      <div class="issuelisting">
-	        <div class="title">
-		  Park Playground needs repair
-	        </div>
-	        <div class="issueimage" >
-	          <img class="issueimg" src="img/ParkPlayGround.jpeg">
-	        </div>
-	        <div class="description">
-		  The Park Playground at Dolores Park has a swing that needs fixing 
-		  and the areas around the playground need trash pickup and cleaning
-	        </div>
-	        <div class="detail">
-		  <a class="detailbutton" href="detail.html">Details</a>
-	        </div>
-	      </div>
             </div>
 	  </div>
         </div>

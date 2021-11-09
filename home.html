@@ -1,6 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Work+Sans&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Merriweather+Sans:wght@300&display=swap" rel="stylesheet">
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>City Improve</title>
@@ -55,6 +61,7 @@
       background: url('img/SFCivicCenterOpaque.jpg') no-repeat center center;
       background-size: cover;
       min-height: 100vh;
+      font-family: 'Work Sans', 'Merriweather Sans', sans-serif;
     }
 
     a {
@@ -79,7 +86,7 @@
       width: 35%;
       background: #ffffff;
       border: 2px solid black;
-      opacity: 0.6;
+      opacity: 0.8;
       margin: 40px;
       padding: 40px;
       border-radius: 10px;
@@ -151,6 +158,12 @@
       display: block;
     }
 
+
+    @media screen and (max-width: 1000px) {
+       .maincontent {
+	  font-family: times;
+       }
+   } 
    /* When the screen is less than 768 pixels wide, hide all links, except for the first one ("Home").
       Show the link that contains should open and close the topnav (.icon) */
     @media screen and (max-width: 768px) {
@@ -159,17 +172,18 @@
 	height: 100vh;
         background: url('img/SFCivicCenterOpaqueSmall.jpg') no-repeat center center;
 	background-size: cover;
+	font-weight: bold;
     }
  
     #headericon {
-	width: 15%;
+	width: 20%;
 	background-image: url('img/CityHallSmall.jpg');
 	background-size: 100% 100%;
 	border: 10px solid;
     }
 
     #headertitle {
-      padding: 2px;
+      padding: 4px;
     }
  
     /* START OF SPECIFIC PAGE STYLING */
@@ -231,6 +245,7 @@
        display: none;
      }
   }
+
 
    </style>
 </head>
